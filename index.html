@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>AgriCentral | Smart Farming Platform</title>
+  <meta name="description" content="Complete farming solution - Equipment, Services, Consultation & Tutorials">
+  <meta name="theme-color" content="#2a7a2f">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="AgriCentral">
+  
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="manifest.json">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-wrapper">
+    <!-- ===== STATIC HEADER (sticky at top) ===== -->
+    <header class="app-header">
+      <div class="header-top">
+        <div class="logo">
+          <i class="fas fa-seedling"></i>
+          <h1>AgriCentral</h1>
+        </div>
+        <div class="header-badge">
+          <i class="fas fa-cloud-sun"></i> Kharif Ready
+        </div>
+      </div>
+      <p class="tagline">Smart solutions for sustainable farming</p>
+      <div class="stats-row" id="statsRow">
+        <div class="stat-item"><i class="fas fa-spinner fa-pulse"></i> Loading...</div>
+      </div>
+    </header>
+
+    <!-- ===== MAIN CONTENT (scrollable area) ===== -->
+    <main class="main-content" id="mainContent">
+      <!-- Consultation Page -->
+      <div id="consultPage" class="page">
+        <div class="page-header">
+          <h2><i class="fas fa-headset"></i> Expert Consultation</h2>
+        </div>
+        <div class="filters-bar">
+          <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" id="consultSearch" placeholder="Search consultants...">
+          </div>
+          <div class="filter-chips" id="consultFilterChips">
+            <button class="chip active" data-filter="all">All</button>
+            <button class="chip" data-filter="Crop Scientist">🌾 Crop Scientists</button>
+            <button class="chip" data-filter="Soil Scientist">🌱 Soil Scientists</button>
+            <button class="chip" data-filter="Agronomist">🌿 Agronomists</button>
+          </div>
+        </div>
+        <div id="consultantsGrid" class="cards-grid"></div>
+      </div>
+
+      <!-- Equipment Page -->
+      <div id="equipmentPage" class="page">
+        <div class="page-header">
+          <h2><i class="fas fa-tractor"></i> Equipment Hub</h2>
+        </div>
+        <div class="filters-bar">
+          <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" id="equipSearch" placeholder="Search equipment...">
+          </div>
+          <div class="filter-chips" id="equipFilterChips">
+            <button class="chip active" data-filter="all">All</button>
+          </div>
+          <select id="sortSelect" class="sort-select">
+            <option value="default">Sort: Relevance</option>
+            <option value="price_low">Price: Low to High</option>
+            <option value="price_high">Price: High to Low</option>
+          </select>
+        </div>
+        <div id="equipmentGrid" class="cards-grid"></div>
+      </div>
+
+      <!-- Reading Page -->
+      <div id="readingPage" class="page">
+        <div class="page-header">
+          <h2><i class="fas fa-book-open"></i> Knowledge Library</h2>
+        </div>
+        <div class="filters-bar">
+          <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" id="readingSearch" placeholder="Search articles...">
+          </div>
+        </div>
+        <div id="readingGrid" class="cards-grid reading-grid"></div>
+      </div>
+
+      <!-- Services Page -->
+      <div id="servicesPage" class="page active-page">
+        <div class="page-header">
+          <h2><i class="fas fa-hand-sparkles"></i> Service Providers</h2>
+        </div>
+        <div class="filters-bar">
+          <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" id="serviceSearch" placeholder="Search services...">
+          </div>
+          <div class="filter-chips" id="serviceFilterChips">
+            <button class="chip active" data-filter="all">All</button>
+          </div>
+        </div>
+        <div id="servicesGrid" class="cards-grid"></div>
+      </div>
+
+      <!-- Videos Page -->
+      <div id="videosPage" class="page">
+        <div class="page-header">
+          <h2><i class="fas fa-play-circle"></i> Tutorial Videos</h2>
+        </div>
+        <div class="filters-bar">
+          <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" id="videoSearch" placeholder="Search videos...">
+          </div>
+        </div>
+        <div id="videosGrid" class="cards-grid videos-grid"></div>
+      </div>
+    </main>
+
+    <!-- ===== STATIC FOOTER with Tabs ===== -->
+    <footer class="app-footer">
+      <button class="tab-btn" data-page="consult">
+        <i class="fas fa-headset"></i>
+        <span>Consult</span>
+      </button>
+      <button class="tab-btn" data-page="equipment">
+        <i class="fas fa-tractor"></i>
+        <span>Equipment</span>
+      </button>
+      <button class="tab-btn" data-page="reading">
+        <i class="fas fa-book"></i>
+        <span>Read</span>
+      </button>
+      <button class="tab-btn active" data-page="services">
+        <i class="fas fa-hand-sparkles"></i>
+        <span>Services</span>
+      </button>
+      <button class="tab-btn" data-page="videos">
+        <i class="fas fa-play-circle"></i>
+        <span>Videos</span>
+      </button>
+    </footer>
+  </div>
+
+  <!-- Booking Modal -->
+  <div id="bookingModal" class="modal-overlay">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modalEquipName">Book Equipment</h3>
+        <button class="modal-close" id="closeModalBtn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <label>Start Date</label>
+        <input type="date" id="startDate">
+        <label>End Date</label>
+        <input type="date" id="endDate">
+        <div id="priceBreakdown" class="price-breakdown"></div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-primary" id="confirmBookBtn">Confirm Booking</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Install Toast for PWA -->
+  <div id="installToast" class="install-toast" style="display: none;">
+    <span><i class="fas fa-download"></i> Install App</span>
+    <button id="installBtn">Install</button>
+  </div>
+
+  <!-- Toast Message -->
+  <div id="toastMsg" class="toast"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
